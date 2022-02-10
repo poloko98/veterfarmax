@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+.topbar {
+    background-color: #54771c;
+    text-align: end;
+    align-items: flex-end;   
+}
+
+.body{
+    margin:0;
+    display: block;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+.sdi {
+    height: 38px;
+    padding-right: 1vh;
+}
+
+.phon{
+    height: 17px;
+    padding-right: 1vh;
+}
+
+.nro {
+    color: white;
+    padding-right: 1vh;
+}
+
+.topo{
+    align-content: center;
+    width: 100%;
+    min-height: 20px;
+
+}
+
+.precio{
+    color: red;
+    font-size: 20px;
+}
+
+
+.spi{
+    color: #54771c;
+}
+
+.navilungo{
+    background-color: #54771c;
+    min-height: 4px;
+    text-align: center; 
+}
+
+.navheader{ 
+    text-align: center; 
+    align-content: stretch;
+}
+
+.search{
+    min-width: 50vh;
+    max-width: 70vh;
+}
