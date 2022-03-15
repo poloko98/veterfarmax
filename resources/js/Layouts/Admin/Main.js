@@ -10,42 +10,40 @@ import NavAdmin from "./Navbar";
 const MainAdmin = () => {
 
     return (
-
-
-
         <div className="body-admin" >
-
             <Row>
-                <Col sm="2" >
+                <Col sm="12" md="2" >
                     <Sidebar />
                 </Col>
 
-                <Col lg="8" >
-                    <Container fluid>
-                        <Switch>
-                            {routes.map((route, idx) => {
-                                return (
-                                    route.component && (
-                                        <Route
-                                            key={idx}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            name={route.name}
-                                            render={(props) => (
-                                                <route.component {...props} />
-                                            )}
-                                        />
-                                    )
+                <Col md="10" >
+
+                    <Switch>
+                        {routes.map((route, idx) => {
+                            return (
+                                route.component && (
+                                    <Route
+                                        key={idx}
+                                        path={route.path}
+                                        exact={route.exact}
+                                        name={route.name}
+                                        render={(props) => (
+                                            <route.component {...props} />
+                                        )}
+                                    />
                                 )
-                            })}
+                            )
+                        })}
 
-                            <Redirect from='admin' to="/admin" />
+                        <Redirect from='admin' to="/admin" />
 
-                        </Switch>
-                    </Container>
+                    </Switch>
+
                 </Col>
 
             </Row>
+
+
 
         </div>
 

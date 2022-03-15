@@ -38,7 +38,7 @@ function ListaProducto() {
                 thisClicked.closest("tr").remove();
             }
             else if (res.status === 404) {
-                new Swal("Error", res.data.message, "Producto no encontrada.");
+                new Swal("Error", res.data.message, "Producto no encontrado.");
                 thisClicked.innerText = "Eliminando";
             }
         });

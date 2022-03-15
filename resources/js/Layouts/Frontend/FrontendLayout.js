@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Header from './Head';
 import NavbarF from './Navbar';
 import Topbar from './TopBar';
+import Barrafiltro from '../../Components/Frontend/Catalogo/BarraFiltro';
 const FrontendLayout = () => {
     
     return (
@@ -14,6 +15,7 @@ const FrontendLayout = () => {
             <Topbar/>
             <Header />
             <NavbarF />
+            <Barrafiltro/>
             <Container fluid className='mt-4'>
                 <Switch>
                     {publicRouteList.map((routedata, idx) => {

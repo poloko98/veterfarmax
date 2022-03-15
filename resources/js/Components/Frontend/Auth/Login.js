@@ -34,12 +34,11 @@ function Login() {
                     new swal("Logeado!", res.data.message, "success");
                     history.push('/');
                 }
-                else if (res.data.status === 401) 
-                {
+                else if (res.data.status === 401) {
                     new swal("Error!", res.data.message, "error");
                 }
                 else {
-                    SetloginInput({...loginInput ,error_list: res.data.validation_errors});
+                    SetloginInput({ ...loginInput, error_list: res.data.validation_errors });
                 };
             });
         });
@@ -50,33 +49,34 @@ function Login() {
 
     return (
         <div>
-            
+
             <Container >
 
                 <div>
-                   
-                    
+
+
 
                     <Card >
                         <Card.Img variant="top" src="" />
                         <Card.Body>
-                            
+
                             <Form onSubmit={loginSubmit}>
                                 <Row >
-                                    <Form.Group  controlId="formGridEmail">
+                                    <Form.Group controlId="formGridEmail">
                                         <Form.Label >Correo Electronico</Form.Label>
                                         <Form.Control type="email" name="email" placeholder="Ingrese su email" onChange={handleInput} value={loginInput.email} />
                                         <span>{loginInput.error_list.email}</span>
                                     </Form.Group>
                                 </Row>
                                 <Row >
-                                    <Form.Group controlId="formGridPassword">
+                                    <Form.Group
+                                        controlId="formGridPassword">
                                         <Form.Label>password</Form.Label>
                                         <Form.Control type="password" name="password" placeholder="password" onChange={handleInput} value={loginInput.password} />
                                         <span>{loginInput.error_list.password}</span>
                                     </Form.Group>
                                 </Row>
-                                <br/>
+                                <br />
                                 <Button variant="primary" type="submit">
                                     Iniciar Sesion
                                 </Button>

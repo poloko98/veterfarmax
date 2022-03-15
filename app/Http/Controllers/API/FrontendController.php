@@ -20,6 +20,29 @@ class FrontendController extends Controller
             'categoria' => $categoria
         ]);
     }
+    
+    public function buscar($key)
+    {
+        $producto = Producto::where('slug','like' ,"%$key%")->get();
+        if($producto){
+            return response()->json([
+                'status' => 200,
+                'producto_data' => [
+                    'producto' => $producto,
+                ]
+                
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Productos con ese nombre no encontrados'
+            ]);
+        }
+        
+    }
+
 
     public function producto($slug)
     {

@@ -12,6 +12,7 @@ import cart from "../../../Assets/Frontend/img/cart.svg";
 import box from "../../../Assets/Frontend/img/box.svg";
 import Login from '../../Components/Frontend/Auth/Login';
 import Register from '../../Components/Frontend/Auth/Register'
+import Search from './Search';
 
 function Header() {
 
@@ -106,17 +107,7 @@ function Header() {
                     </Link>
                   </Nav.Item>
                 </Col>
-                <Col md="auto">
-                  <Nav.Item className="mt-3">
-                    <InputGroup className="search" size="lg">
-                      <FormControl placeholder="Buscar Articulo" />
-                      <Button variant="outline-secondary" id="button-addon2">
-                        <img src={lupa} alt="lupa"   ></img>
-                      </Button>
-                    </InputGroup>
-
-                  </Nav.Item>
-                </Col>
+                <Search/>
                 <Col md="auto">
                   <Nav.Item>
                     {AuthButtons}

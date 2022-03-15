@@ -21,7 +21,7 @@ const Sidebar = () => {
                 </Col>
               </div>
             </Container>
-            <div className="mt-4 text-center">
+            {/* <div className="mt-4 text-center">
               <Col >
                 <Form.Select aria-label="Default select example">
                   <option>Farmacronicos Internet</option>
@@ -30,7 +30,7 @@ const Sidebar = () => {
                   <option value="3">Farmacronicos La Serena</option>
                 </Form.Select>
               </Col>
-            </div>
+            </div> */}
             <Accordion className="accM ">
               <nav className="nav-menu">
 

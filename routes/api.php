@@ -32,16 +32,18 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //Orden
 Route::post('/ingresar-orden', [OrdenController::class, 'store']);
-Route::post('validar-orden', [OrdenController::class, 'validar']);
+Route::post('/validar-orden', [OrdenController::class, 'validar']);
 
 
 //Frontend
-Route::get('getCategoria', [FrontendController::class, 'categoria']);
-Route::get('fetchproductos/{slug}', [FrontendController::class, 'producto']);
-Route::get('verproducto/{categoria_slug}/{producto_slug}', [FrontendController::class, 'ver']);
-Route::get('productosOferta', [FrontendController::class, 'ofertaProducto']);
-Route::get('sucursales', [FrontendController::class, 'listaSucursales']);
-Route::post('actualizar-sucursal', [FrontendController::class, 'actualizarSucursal']);
+Route::get('/getCategoria', [FrontendController::class, 'categoria']);
+Route::get('/fetchproductos/{slug}', [FrontendController::class, 'producto']);
+Route::get('/verproducto/{categoria_slug}/{producto_slug}', [FrontendController::class, 'ver']);
+Route::get('/productosOferta', [FrontendController::class, 'ofertaProducto']);
+Route::get('/sucursales', [FrontendController::class, 'listaSucursales']);
+Route::post('/actualizar-sucursal', [FrontendController::class, 'actualizarSucursal']);
+Route::get('buscar/{key}', [FrontendController::class, 'buscar']);
+
 
 
 //pedido

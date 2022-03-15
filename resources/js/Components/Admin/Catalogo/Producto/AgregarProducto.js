@@ -320,12 +320,7 @@ function AgregarProducto() {
                           Categoria
                         </Form.Label>
                         <Col sm={10}>
-                          <Form.Select
-                            name="Categoria"
-                            placeholder="Ingrese categoria"
-                            onChange={handleinput}
-                            value={productoInput.Categoria}
-                          >
+                          <Form.Select name="Categoria" placeholder="Ingrese categoria" onChange={handleinput} value={productoInput.Categoria}>
                             <option>Seleccione categoria</option>
                             {listaCategoria.map((item) => {
                               return (
