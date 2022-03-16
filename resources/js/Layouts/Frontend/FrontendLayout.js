@@ -1,5 +1,5 @@
-import { Container } from 'react-bootstrap';
-import {  Route, Switch } from "react-router";
+import { Container, Row } from 'react-bootstrap';
+import { Route, Switch } from "react-router";
 import axios from 'axios';
 import publicRouteList from '../../Routes/PublicRouteList';
 import Footer from './Footer';
@@ -8,14 +8,26 @@ import NavbarF from './Navbar';
 import Topbar from './TopBar';
 import Barrafiltro from '../../Components/Frontend/Catalogo/BarraFiltro';
 const FrontendLayout = () => {
-    
+
     return (
         <div className="body" >
-            
-            <Topbar/>
-            <Header />
-            <NavbarF />
-            <Barrafiltro/>
+            <Row>
+                <Container fluid>
+                    <Topbar />
+                </Container>
+
+            </Row>
+            <Row>
+                <Container fluid>
+                    <Header />
+                </Container>
+            </Row>
+            <Row>
+                <Container fluid>
+                    <NavbarF />
+                </Container>
+            </Row>
+
             <Container fluid className='mt-4'>
                 <Switch>
                     {publicRouteList.map((routedata, idx) => {
@@ -35,7 +47,7 @@ const FrontendLayout = () => {
                     })}
                 </Switch>
             </Container>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

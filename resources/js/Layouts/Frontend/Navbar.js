@@ -7,7 +7,7 @@ import { Redirect, Route, Switch } from "react-router";
 function NavbarF() {
 
   return (
-    <div className="">
+    <div >
 
       <Navbar className="navilungo" variant="dark">
 

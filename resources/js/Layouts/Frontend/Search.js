@@ -15,17 +15,17 @@ function Search() {
     keyword: ""
   });
   const count_productos = producto.length;
-  var items  = "";
+  var items = "";
 
-  items  = producto.map((item) => {
+  items = producto.map((item) => {
     return (
-      { value: item.slug, name: item.nombre, img:item.image }
+      { value: item.slug, name: item.nombre, precio: item.precio, marca: item.marca }
 
     )
   })
 
   const handleOnSearch = (e) => {
-  
+
   }
 
   const handleOnHover = (result) => {
@@ -34,8 +34,8 @@ function Search() {
   }
 
   const handleOnSelect = (item) => {
-    
-   
+
+
     console.log(item)
   }
 
@@ -46,8 +46,9 @@ function Search() {
   const formatResult = (item) => {
     return (
       <>
-        <img src={`http://localhost:8000/${item.image}`} height='50px' alt="image"></img>
         <span style={{ display: 'block', textAlign: 'left' }}>nombre: {item.name}</span>
+        <span style={{ display: 'block', textAlign: 'left' }}>marca: {item.marca}</span>
+        <span style={{ display: 'block', textAlign: 'left' }}>precio: {item.precio}</span>
       </>
     )
   }

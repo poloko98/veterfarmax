@@ -9,7 +9,7 @@
 
 .body {
     margin: 0;
-    display: block;
+    display: inline-block;
     width: 100%;
     font-family: 'Poppins', sans-serif;
 }
@@ -32,7 +32,6 @@
 .topo {
     align-content: center;
     width: 100%;
-    min-height: 20px;
 
 }
 
@@ -48,7 +47,6 @@
 
 .navilungo {
     background-color: #54771c;
-    min-height: 4px;
     text-align: center;
 }
 

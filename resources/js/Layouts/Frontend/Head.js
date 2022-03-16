@@ -1,6 +1,7 @@
 import { Nav, Navbar, Container, Button, InputGroup, FormControl, Col, Row, Stack, Modal, Image, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useHistory, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import axios from 'axios';
 import swal from 'sweetalert2';
 import veter from "../../../Assets/Frontend/img/veterfarma.png";
@@ -20,6 +21,75 @@ function Header() {
   const [lon, setLon] = useState();
   const [lat, setLat] = useState();
   const [show, setShow] = useState(false);
+  const [opt, setOpt] = useState([]);
+  const [keyword, setKeyword] = useState([]);
+  const [producto, setProducto] = useState([]);
+  const [keywordInput, setKeywordinput] = useState({
+    keyword: ""
+  });
+  const count_productos = producto.length;
+  var items = "";
+
+  items = producto.map((item) => {
+    return (
+      { value: item.slug, name: item.nombre, precio: item.precio, marca: item.marca }
+
+    )
+  })
+
+  const handleOnSearch = (e) => {
+
+  }
+
+  const handleOnHover = (result) => {
+    // the item hovered
+    console.log(result)
+  }
+
+  const handleOnSelect = (item) => {
+
+
+    console.log(item)
+  }
+
+  const handleOnFocus = () => {
+    console.log('Focused')
+  }
+
+  const formatResult = (item) => {
+    return (
+      <>
+        <span style={{ display: 'block', textAlign: 'left' }}>nombre: {item.name}</span>
+        <span style={{ display: 'block', textAlign: 'left' }}>marca: {item.marca}</span>
+        <span style={{ display: 'block', textAlign: 'left' }}>precio: {item.precio}</span>
+      </>
+    )
+  }
+
+  useEffect(() => {
+    let isMounted = true;
+    axios.get(`/api/buscar/a`).then((res) => {
+
+      if (isMounted) {
+        if (res.data.status === 200) {
+          setProducto(res.data.producto_data.producto);
+          setLoading(false);
+        }
+        else if (res.data.status === 400) {
+          new swal("Warning", res.data.message, "error");
+        }
+        else if (res.data.status === 404) {
+          new swal("Warning", res.data.message, "error");
+          history.pushState('/categorias');
+        }
+      }
+
+    });
+
+    return () => {
+      isMounted = false;
+    }
+  }, [history]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -107,7 +177,23 @@ function Header() {
                     </Link>
                   </Nav.Item>
                 </Col>
-                <Search/>
+                <Col md="auto">
+                  <Nav.Item className="mt-3">
+                    <div style={{ width: 400 }} >
+                      <ReactSearchAutocomplete
+                        items={items}
+                        onSearch={handleOnSearch}
+                        onHover={handleOnHover}
+                        onSelect={handleOnSelect}
+                        onFocus={handleOnFocus}
+                        autoFocus
+                        formatResult={formatResult}
+                      />
+                    </div>
+
+                  </Nav.Item>
+                </Col>
+
                 <Col md="auto">
                   <Nav.Item>
                     {AuthButtons}
